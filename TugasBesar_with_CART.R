@@ -22,7 +22,8 @@ training.sample <- dataset1$Result_of_Treatment%>%createDataPartition(p=0.8, lis
 train.data <- dataset1[training.sample,]
 test.data <- dataset1[-training.sample,]
 #Membuat Model
-model <- rpart(Result_of_Treatment~., data = train.data, method = "class", control = rpart.control(minsplit = 0, cp = 0))
+set.seed(123)
+model <- rpart(Result_of_Treatment~., data = train.data, method = "class", control = rpart.control(minsplit = 5))
 #Menampilkan Plot/Pohon Keputusan dan tingkat probabilitas class
 prp(model, extra = 4)
 #Melakukan Prediksi terhadap data test
