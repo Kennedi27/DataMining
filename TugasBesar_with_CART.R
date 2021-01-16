@@ -23,7 +23,7 @@ train.data <- dataset1[training.sample,]
 test.data <- dataset1[-training.sample,]
 #Membuat Model
 set.seed(123)
-model <- rpart(Result_of_Treatment~., data = train.data, method = "class", control = rpart.control(minsplit = 5))
+model <- rpart(Result_of_Treatment~., data = train.data, method = "class", control = rpart.control(minsplit = 0))
 #Menampilkan Plot/Pohon Keputusan dan tingkat probabilitas class
 prp(model, extra = 4)
 #Melakukan Prediksi terhadap data test
